@@ -128,6 +128,7 @@ Map removeIn(Map m, List<String> keys) {
 }
 
 /// Removes a given key from a map, returning a new instance
-Map remove(Map m, String key) {
-  return removeIn(m, [key]);
-}
+Map remove(Map m, String key) => removeIn(m, [key]);
+
+// Merges two maps together, overriding existing keys and returning a new instance
+Map merge(Map m, Map n) => {}..addAll(m ?? {})..addAll(n ?? {});

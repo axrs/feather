@@ -186,4 +186,21 @@ void main() {
       expect(u.getIn(m, ['peterPan', 'notFound'], "Value"), "Value");
     });
   });
+
+  group("merge", () {
+    test("Acceps null values, replacing with empty maps", () async {
+      expect(u.merge(null, null), {});
+      expect(u.merge({}, null), {});
+      expect(u.merge(null, {}), {});
+    });
+    test("Preserves existing values", () async {
+      final Map m = {"existing": "value"};
+      final Map n = {"new": "value"};
+      final Map expected = {"existing": "value", "new": "value"};
+      expect(u.merge(m, n), expected);
+      expect(u.merge(n, m), expected);
+      expect(u.merge(m, null), m);
+      expect(u.merge(null, m), m);
+    });
+  });
 }
