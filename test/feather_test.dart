@@ -265,4 +265,13 @@ void main() {
       expect(u.or({"a": 1}, 1, -1), 1);
     });
   });
+
+  group("isNotNull", () {
+    test("returns true if not null", () async {
+      expect(u.isNotNull(null), false);
+      expect(u.isNotNull(true), true);
+      expect(u.isNotNull(0), true);
+      expect(u.isNotNull({}), true);
+    });
+  });
 }

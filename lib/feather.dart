@@ -149,6 +149,9 @@ List<Map> nonNullMaps(v) => asMaps(removeNulls(v));
 // Returns true if x is null
 bool isNull(dynamic x) => x == null;
 
+// Returns true if x is not null
+bool isNotNull(dynamic x) => !isNull(x);
+
 bool _isTruthy(dynamic val) {
   //TODO: Find a better way
   if (val == null) return false;
