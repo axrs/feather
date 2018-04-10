@@ -1,5 +1,8 @@
+## [0.0.6] - Or->ifVal
+Renamed `or` to `ifVal`
+
 ## [0.0.5] - Null Checks
-Adds `isNull` and `isNotNull` and renamed `or` to `ifVal`.
+Adds `isNull` and `isNotNull`
 
 ## [0.0.4] - Conditional Functions
 Adds support for `when` and `or` functions with lazyish evaluation
