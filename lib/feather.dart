@@ -2,6 +2,7 @@ library feather;
 
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_stream_friends/flutter_stream_friends.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -72,15 +73,15 @@ List removeNulls(List list) {
 Map setIn(Map m, List<String> keys, dynamic value) {
   if (keys.length > 1) {
     var fold = keys
-        .fold(new List(), (list, s) {
+        .fold(new List<String>(), (List<String> list, s) {
           var preceding = (list.length > 0) ? list.last + "." : "";
           list.add('$preceding$s');
           return list;
         })
         .reversed
         .skip(1)
-        .map((k) => get(m, k))
-        .fold(value, (dynamic o, Map n) {
+        .map((String k) => get(m, k))
+        .fold(value, (dynamic o, dynamic n) {
           var k = keys.removeLast();
           o = _vofk(o, n, k);
           var exst = get(n, k);
@@ -132,3 +133,15 @@ Map remove(Map m, String key) => removeIn(m, [key]);
 
 // Merges two maps together, overriding existing keys and returning a new instance
 Map merge(Map m, Map n) => {}..addAll(m ?? {})..addAll(n ?? {});
+
+// Casts a List<dynamic> to a List<Widget>
+List<Widget> asWidgets(List values) => values.map((v) => v as Widget).toList();
+
+// Casts a List<dynamic> to a List<Map>
+List<Map> asMaps(List values) => values.map((v) => v as Map).toList();
+
+// Casts a List<dynamic> to a List<Widget> and removes null values
+List<Widget> nonNullWidgets(v) => asWidgets(removeNulls(v));
+
+// Casts a List<dynamic> to a List<Map> and removes null values
+List<Map> nonNullMaps(v) => asMaps(removeNulls(v));

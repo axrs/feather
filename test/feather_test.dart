@@ -1,4 +1,5 @@
 import 'package:feather/feather.dart' as u;
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -201,6 +202,36 @@ void main() {
       expect(u.merge(n, m), expected);
       expect(u.merge(m, null), m);
       expect(u.merge(null, m), m);
+    });
+  });
+
+  group("asX", () {
+    test("asWidgets: returns a list of widgets", () async {
+      Widget a = ErrorWidget(null);
+      Widget b;
+      List<Widget> actual = u.asWidgets([a, b, b, a]);
+      expect(actual, [a, null, null, a]);
+    });
+    test("asMaps:  returns a list of Maps", () async {
+      Map a = {"a": 1};
+      Map b = {"b": 2};
+      List<Map> actual = u.asMaps([a, b]);
+      expect(actual, [a, b]);
+    });
+  });
+  group("nonNullX", () {
+    test("Widgets: returns a list of widgets", () async {
+      Widget a = ErrorWidget(null);
+      Widget b;
+      List<Widget> actual = u.nonNullWidgets([a, b, b, a]);
+      expect(actual, [a, a]);
+    });
+    test("asMaps:  returns a list of Maps", () async {
+      Map a = {"a": 1};
+      Map b = {"b": 2};
+      Map c;
+      List<Map> actual = u.nonNullMaps([a, c, c, b]);
+      expect(actual, [a, b]);
     });
   });
 }

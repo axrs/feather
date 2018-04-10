@@ -1,8 +1,18 @@
+## [0.0.3] - Casting Functions
+
+Adds typecasting functionality for List<dynamic> to:
+* Map with `asMaps`
+* Widget with `asWidgets`
+* `nonNullMaps`
+* `nonNullWidgets`
+
+Fixed some Dart 2 assertion checks.
+
 ## [0.0.2] - Merge Function
 
 Adds functionality for:
 * Utilities
-  * merge
+  * `merge`
 
 ## [0.0.1] - Initial Release
 
