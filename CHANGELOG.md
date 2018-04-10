@@ -1,3 +1,6 @@
+## [0.0.4] - Conditional Functions
+Adds support for `when` and `or` functions with lazyish evaluation
+
 ## [0.0.3] - Casting Functions
 
 Adds typecasting functionality for List<dynamic> to:
