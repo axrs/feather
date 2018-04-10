@@ -1,3 +1,6 @@
+## [0.0.5] - Null Checks
+Adds `isNull` and `isNotNull`
+
 ## [0.0.4] - Conditional Functions
 Adds support for `when` and `or` functions with lazyish evaluation
 
