@@ -171,7 +171,7 @@ dynamic when(dynamic val, dynamic res) {
 }
 
 // Returns resTrue or resFalse depending on the truthyness of val
-dynamic or(dynamic val, dynamic resTrue, dynamic resFalse) {
+dynamic ifVal(dynamic val, dynamic resTrue, dynamic resFalse) {
   if (_isTruthy(val)) {
     return _vof(resTrue, val);
   } else {

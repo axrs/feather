@@ -253,16 +253,16 @@ void main() {
       expect(u.when(1, (v) => v + 10), 11);
     });
   });
-  group("or", () {
+  group("ifVal", () {
     test("returns true or false path", () async {
-      expect(u.or(false, 1, -1), -1);
-      expect(u.or(null, 1, -1), -1);
-      expect(u.or(0, 1, -1), -1);
-      expect(u.or({}, 1, -1), -1);
-      expect(u.or([], 1, -1), -1);
-      expect(u.or(true, 1, -1), 1);
-      expect(u.or([1], 1, -1), 1);
-      expect(u.or({"a": 1}, 1, -1), 1);
+      expect(u.ifVal(false, 1, -1), -1);
+      expect(u.ifVal(null, 1, -1), -1);
+      expect(u.ifVal(0, 1, -1), -1);
+      expect(u.ifVal({}, 1, -1), -1);
+      expect(u.ifVal([], 1, -1), -1);
+      expect(u.ifVal(true, 1, -1), 1);
+      expect(u.ifVal([1], 1, -1), 1);
+      expect(u.ifVal({"a": 1}, 1, -1), 1);
     });
   });
 
