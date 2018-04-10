@@ -219,6 +219,7 @@ void main() {
       expect(actual, [a, b]);
     });
   });
+
   group("nonNullX", () {
     test("Widgets: returns a list of widgets", () async {
       Widget a = ErrorWidget(null);
@@ -232,6 +233,36 @@ void main() {
       Map c;
       List<Map> actual = u.nonNullMaps([a, c, c, b]);
       expect(actual, [a, b]);
+    });
+  });
+
+  group("when", () {
+    test("returns null if not truthy", () async {
+      expect(u.when(false, true), null);
+      expect(u.when(null, true), null);
+      expect(u.when(0, true), null);
+      expect(u.when({}, true), null);
+      expect(u.when([], true), null);
+      expect(u.when(true, true), true);
+      expect(u.when([1], true), true);
+      expect(u.when({"a": 1}, true), true);
+    });
+
+    test("invokes a function with val when truthy", () async {
+      expect(u.when(0, (v) => v + 10), null);
+      expect(u.when(1, (v) => v + 10), 11);
+    });
+  });
+  group("or", () {
+    test("returns true or false path", () async {
+      expect(u.or(false, 1, -1), -1);
+      expect(u.or(null, 1, -1), -1);
+      expect(u.or(0, 1, -1), -1);
+      expect(u.or({}, 1, -1), -1);
+      expect(u.or([], 1, -1), -1);
+      expect(u.or(true, 1, -1), 1);
+      expect(u.or([1], 1, -1), 1);
+      expect(u.or({"a": 1}, 1, -1), 1);
     });
   });
 }

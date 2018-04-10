@@ -104,7 +104,7 @@ Map setIn(Map m, List<String> keys, dynamic value) {
   }
 }
 
-_vof(o, Map n) {
+_vof(o, dynamic n) {
   return (o is Function) ? o(n) : o;
 }
 
@@ -145,3 +145,33 @@ List<Widget> nonNullWidgets(v) => asWidgets(removeNulls(v));
 
 // Casts a List<dynamic> to a List<Map> and removes null values
 List<Map> nonNullMaps(v) => asMaps(removeNulls(v));
+
+// Returns true if x is null
+bool isNull(dynamic x) => x == null;
+
+bool _isTruthy(dynamic val) {
+  //TODO: Find a better way
+  if (val == null) return false;
+  if (val == false) return false;
+  if (val == 0) return false;
+  if (val is List && val.isEmpty) return false;
+  if (val is Map && val.isEmpty) return false;
+  return true;
+}
+
+// Returns the value of val passed to res (if function otherwise value of res) when res is truthy
+// ignore: missing_return
+dynamic when(dynamic val, dynamic res) {
+  if (_isTruthy(val)) {
+    return _vof(res, val);
+  }
+}
+
+// Returns resTrue or resFalse depending on the truthyness of val
+dynamic or(dynamic val, dynamic resTrue, dynamic resFalse) {
+  if (_isTruthy(val)) {
+    return _vof(resTrue, val);
+  } else {
+    return _vof(resFalse, val);
+  }
+}
