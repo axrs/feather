@@ -1,6 +1,6 @@
 name: feather
 description: A flutter utility library with re-frame esk features
-version: 0.0.6
+version: 0.1.0
 author: AXRS <xander@axrs.io>
 homepage: https://github.com/axrs/feather
 
@@ -8,7 +8,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_stream_friends: ^0.7.0
-  rxdart: ^0.16.0
+  rxdart: ^0.16.7
 
 dev_dependencies:
   flutter_test:

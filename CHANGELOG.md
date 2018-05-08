@@ -1,3 +1,9 @@
+## [0.1.0] - Minor Release
+Feather has proven stable enough for a minor release
+
+Fixes:
+* Issue with setting the initial AppDb state.
+
 ## [0.0.6] - Or->ifVal
 Renamed `or` to `ifVal`
 
