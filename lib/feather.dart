@@ -7,7 +7,7 @@ import 'package:flutter_stream_friends/flutter_stream_friends.dart';
 import 'package:rxdart/rxdart.dart';
 
 class AppDb {
-  static AppDb _db = new AppDb({});
+  static AppDb _db;
   static ValueStreamCallback<Map> onUpdate = new ValueStreamCallback<Map>();
   Map store;
 
