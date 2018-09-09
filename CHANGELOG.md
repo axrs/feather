@@ -1,3 +1,9 @@
+## [0.2.0] - Package Upgrade
+Upgrade packages and support Dart 2.0.0-dev < 3.0.0
+
+Closes:
+* https://github.com/axrs/feather/issues/1
+
 ## [0.1.0] - Minor Release
 Feather has proven stable enough for a minor release
 
